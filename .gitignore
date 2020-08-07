@@ -1,5 +1,4 @@
 *.o
 *.rej
 *.orig
-*.1
 .vim-bookmarks
