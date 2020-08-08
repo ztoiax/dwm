@@ -77,6 +77,8 @@ static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ Mod1Mask,                     XK_m,      spawn,          {.v = soundup } },
+	{ Mod1Mask,                     XK_n,      spawn,          {.v = sounddown } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_o,      togglescratch,  {.v = scratchpadcmd } },
