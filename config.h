@@ -81,12 +81,16 @@ static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 
+static const char *searchcmd[] = { "/home/tz/.mybin/dmenu-search.sh",  NULL };
+static const char *urlcmd[] = { "/home/tz/.mybin/dmenu-url.sh",  NULL };
 
 static const char *soundup[] = { "/bin/sh", "-c", "amixer set Master 5db+", NULL };
 static const char *sounddown[] = { "/bin/sh", "-c", "amixer set Master 5db-", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ Mod1Mask,                     XK_i,      spawn,          {.v = searchcmd } },
+	{ Mod1Mask,                     XK_u,      spawn,          {.v = urlcmd } },
 	{ Mod1Mask,                     XK_m,      spawn,          {.v = soundup } },
 	{ Mod1Mask,                     XK_n,      spawn,          {.v = sounddown } },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
