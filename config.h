@@ -87,9 +87,12 @@ static const char *urlcmd[] = { "/home/tz/.mybin/dmenu-url.sh",  NULL };
 static const char *soundup[] = { "/bin/sh", "-c", "amixer set Master 5db+", NULL };
 static const char *sounddown[] = { "/bin/sh", "-c", "amixer set Master 5db-", NULL };
 
+static const char *screencmd[] = { "/bin/sh", "-c", "deepin-screen-recorder", NULL };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ Mod1Mask,                     XK_i,      spawn,          {.v = searchcmd } },
+	{ Mod1Mask|ControlMask,         XK_a,      spawn,          {.v = screencmd } },
+	{ Mod1Mask,                     XK_o,      spawn,          {.v = searchcmd } },
 	{ Mod1Mask,                     XK_u,      spawn,          {.v = urlcmd } },
 	{ Mod1Mask,                     XK_m,      spawn,          {.v = soundup } },
 	{ Mod1Mask,                     XK_n,      spawn,          {.v = sounddown } },
