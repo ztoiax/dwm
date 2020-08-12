@@ -42,7 +42,8 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Firefox",  NULL,       NULL,       3 << 8,       0,           -1 },
+	{ "netease-cloud-music",  NULL,       NULL,       3 << 8,       0,           -1 },
 };
 
 /* layout(s) */
@@ -83,14 +84,27 @@ static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34
 
 static const char *searchcmd[] = { "/home/tz/.mybin/dmenu-search.sh",  NULL };
 static const char *urlcmd[] = { "/home/tz/.mybin/dmenu-url.sh",  NULL };
-
+/* sound */
 static const char *soundup[] = { "/bin/sh", "-c", "amixer set Master 5db+", NULL };
 static const char *sounddown[] = { "/bin/sh", "-c", "amixer set Master 5db-", NULL };
+
+/* screen rotate */
+static const char *leftcmd[] = { "/bin/sh", "-c", "xrandr --output HDMI-0 --rotate left", NULL };
+static const char *rightcmd[] = { "/bin/sh", "-c", "xrandr --output HDMI-0 --rotate right", NULL };
+static const char *upcmd[] = { "/bin/sh", "-c", " xrandr --output HDMI-0 --rotate normal", NULL };
+static const char *downcmd[] = { "/bin/sh", "-c", "xrandr --output HDMI-0 --rotate inverted", NULL };
+/* other */
+static const char *fehcmd[] = { "/bin/sh", "-c", "feh --bg-fill --randomize ~/Pictures/wallpaper/*", NULL };
 
 static const char *screencmd[] = { "/bin/sh", "-c", "deepin-screen-recorder", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ Mod1Mask|ControlMask,         XK_Up,     spawn,          {.v = upcmd } },
+	{ Mod1Mask|ControlMask,         XK_Down,   spawn,          {.v = downcmd } },
+	{ Mod1Mask|ControlMask,         XK_Left,   spawn,          {.v = leftcmd } },
+	{ Mod1Mask|ControlMask,         XK_Right,  spawn,          {.v = rightcmd } },
+	{ Mod1Mask|ControlMask,         XK_n,      spawn,          {.v = fehcmd } },
 	{ Mod1Mask|ControlMask,         XK_a,      spawn,          {.v = screencmd } },
 	{ Mod1Mask,                     XK_o,      spawn,          {.v = searchcmd } },
 	{ Mod1Mask,                     XK_u,      spawn,          {.v = urlcmd } },
