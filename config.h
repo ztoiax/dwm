@@ -10,14 +10,15 @@ static const unsigned int gappov    = 10;       /* vert outer gap between window
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "DroidSansMono Nerd Font:size=14" };
-static const char dmenufont[]       = "DroidSansMono Nerd Font:size=14";
+static const char *fonts[]          = { "DroidSansMono Nerd Font:size=18" };
+static const char dmenufont[]       = "DroidSansMono Nerd Font:size=18";
+
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";    /*状态栏颜色*/
-static const char col_border[]      = "#42a5f5";    /*窗口边框颜色*/
+static const char col_gray4[]       = "#ffffff";
+static const char col_cyan[]        = "#37474F";    /*状态栏颜色*/
+static const char col_border[]      = "#8787ff";    /*窗口边框颜色*/
 static const unsigned int baralpha = 0xd0;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
@@ -32,8 +33,8 @@ static const unsigned int alphas[][3]      = {
 	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
