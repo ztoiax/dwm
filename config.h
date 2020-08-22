@@ -45,6 +45,7 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       3 << 8,       0,           -1 },
 	{ "netease-cloud-music",  NULL,       NULL,       3 << 8,       0,           -1 },
+	{ "xdman",  NULL,       NULL,       3 << 8,       0,           -1 },
 };
 
 /* layout(s) */
@@ -167,6 +168,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_w,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_e,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY|ShiftMask,             XK_e,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[5]} },
@@ -180,7 +182,9 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} },
 	{ ClkWinTitle,          0,              Button2,        zoom,           {0} },
-	{ ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } },
+	{ ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} },
+	{ ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} },
+	{ ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
 	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
