@@ -112,7 +112,7 @@ static Key keys[] = {
 	{ Mod1Mask,                     XK_u,      spawn,          {.v = urlcmd } },
 	{ Mod1Mask,                     XK_m,      spawn,          {.v = soundup } },
 	{ Mod1Mask,                     XK_n,      spawn,          {.v = sounddown } },
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ Mod1Mask,                     XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_o,      togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
@@ -153,6 +153,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Right,  viewtoright,    {0} },
 	{ MODKEY|ShiftMask,             XK_k,      tagtoleft,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      tagtoright,     {0} },
+	{ MODKEY,                       XK_n,      tagtoleft,      {0} },
+	{ MODKEY,                       XK_p,      tagtoright,     {0} },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
