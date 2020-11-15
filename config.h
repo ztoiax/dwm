@@ -84,8 +84,11 @@ static const char *termcmd[]  = { "st", NULL };
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
 
-static const char *searchcmd[] = { "/home/tz/.mybin/dmenu-search.sh",  NULL };
-static const char *urlcmd[] = { "/home/tz/.mybin/dmenu-url.sh",  NULL };
+/* dmenu */
+static const char *dmenu_searchcmd[] = { "/home/tz/.mybin/dmenu-search.sh",  NULL };
+static const char *dmenu_urlcmd[] = { "/home/tz/.mybin/dmenu-url.sh",  NULL };
+static const char *dmenu_checkfile[] = { "/home/tz/.mybin/dmenu-checkfile.sh",  NULL };
+
 /* sound */
 static const char *soundup[] = { "/bin/sh", "-c", "amixer set Master 5db+", NULL };
 static const char *sounddown[] = { "/bin/sh", "-c", "amixer set Master 5db-", NULL };
@@ -95,21 +98,27 @@ static const char *leftcmd[] = { "/bin/sh", "-c", "xrandr --output HDMI-0 --rota
 static const char *rightcmd[] = { "/bin/sh", "-c", "xrandr --output HDMI-0 --rotate right", NULL };
 static const char *upcmd[] = { "/bin/sh", "-c", " xrandr --output HDMI-0 --rotate normal", NULL };
 static const char *downcmd[] = { "/bin/sh", "-c", "xrandr --output HDMI-0 --rotate inverted", NULL };
+/* adb */
+static const char *adbscreen[] = { "/bin/sh", "-c", "adb shell input keyevent 26", NULL };
+
 /* other */
 static const char *fehcmd[] = { "/bin/sh", "-c", "feh --bg-fill --randomize ~/Pictures/wallpaper/*", NULL };
-
 static const char *screencmd[] = { "/bin/sh", "-c", "deepin-screen-recorder", NULL };
+
+
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ ControlMask,                  XK_Return, spawn,          {.v = adbscreen } },
 	{ Mod1Mask|ControlMask,         XK_Up,     spawn,          {.v = upcmd } },
 	{ Mod1Mask|ControlMask,         XK_Down,   spawn,          {.v = downcmd } },
 	{ Mod1Mask|ControlMask,         XK_Left,   spawn,          {.v = leftcmd } },
 	{ Mod1Mask|ControlMask,         XK_Right,  spawn,          {.v = rightcmd } },
 	{ Mod1Mask|ControlMask,         XK_n,      spawn,          {.v = fehcmd } },
 	{ Mod1Mask|ControlMask,         XK_a,      spawn,          {.v = screencmd } },
-	{ Mod1Mask,                     XK_o,      spawn,          {.v = searchcmd } },
-	{ Mod1Mask,                     XK_u,      spawn,          {.v = urlcmd } },
+	{ Mod1Mask,                     XK_o,      spawn,          {.v = dmenu_searchcmd } },
+	{ Mod1Mask,                     XK_u,      spawn,          {.v = dmenu_urlcmd } },
+	{ Mod1Mask,                     XK_f,      spawn,          {.v = dmenu_checkfile } },
 	{ Mod1Mask,                     XK_m,      spawn,          {.v = soundup } },
 	{ Mod1Mask,                     XK_n,      spawn,          {.v = sounddown } },
 	{ Mod1Mask,                     XK_space,  spawn,          {.v = dmenucmd } },
